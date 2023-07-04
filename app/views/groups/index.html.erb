@@ -6,8 +6,8 @@
   <% @groups.each do |group| %>
     <%= render group %>
     <p>
-      <%#= link_to "Show operations", group_operations_path(group) %>
-      <%= link_to "Show this group", show_group %>
+      <%= link_to "Show operations", group_operations_path(group) %>
+      <%= link_to "Show this group", group %>
     </p>
   <% end %>
 </div>

@@ -4,7 +4,6 @@ class OperationsController < ApplicationController
   # GET /operations or /operations.json
   def index
     # @operations = Operation.all
-    @operations = Operation.includes(params[:group_id])
   end
 
   # GET /operations/1 or /operations/1.json
