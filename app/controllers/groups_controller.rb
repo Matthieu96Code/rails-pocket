@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   # GET /groups/1 or /groups/1.json
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = Group.new(group_params)
+    @group =  current_user.groups.build(group_params)
 
     respond_to do |format|
       if @group.save
@@ -67,6 +67,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :user_id)
+      params.require(:group).permit(:name)
     end
 end

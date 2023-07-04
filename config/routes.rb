@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "groups#index"
 
-  resources :users
+  resources :users do 
+    resources :groups
+  end
   
   resources :groups do
     resources :operations
