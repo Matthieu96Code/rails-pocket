@@ -3,11 +3,12 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.includes(:user)
   end
 
   # GET /groups/1 or /groups/1.json
   def show
+    @operations = @group.operations.includes(:group)
   end
 
   # GET /groups/new

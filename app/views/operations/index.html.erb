@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
+<%= link_to "Back to groups", groups_path %>
 <h1>Operations</h1>
 
 <div id="operations">
   <% @operations.each do |operation| %>
     <%= render operation %>
     <p>
-      <%= link_to "Show this operation", operation %>
+      <%#= link_to "Show this operation", operation %>
     </p>
   <% end %>
 </div>
