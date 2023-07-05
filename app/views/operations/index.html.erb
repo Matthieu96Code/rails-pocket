@@ -1,0 +1,16 @@
+<h1>Transactions for <%= @category.name %></h1>
+
+<p>Total Amount: <%= @total_amount %></p>
+
+<ul>
+  <% @operations.each do |operation| %>
+    <li>
+      <h3><%= operation.name %></h3>
+      <p>Amount: <%= operation.amount %></p>
+      <p>Created At: <%= operation.created_at %></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new transaction", new_category_operation_path(@category) %>
+<%= link_to "Back", root_path %>

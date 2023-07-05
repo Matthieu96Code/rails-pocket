@@ -1,0 +1,30 @@
+<h1>Add a New Transaction for <%= @category.name %></h1>
+
+<%= form_with(model: [@category, @operation], url: category_operations_path(@category)) do |form| %>
+  <% if @operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+        <% @operation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save" %>
+    <%= link_to "Back", category_operations_path(@category) %>
+  </div>
+<% end %>

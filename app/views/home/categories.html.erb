@@ -1,0 +1,14 @@
+<h1>Welcome to Expense Tracker</h1>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <h3><%= category.name %></h3>
+      <p><%= category.icon %></p>
+      <p>Total Amount: <%= category.operations.sum(:amount) %></p>
+      <%= link_to "View Transactions", category_operations_path(category) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new category", new_category_path %>
