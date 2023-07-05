@@ -1,0 +1,16 @@
+<h1><%= @group.name %></h1>
+
+<p>Total Amount: <%= @operations.sum(:amount) %></p>
+
+<%= link_to "Back", groups_path %>
+
+<hr>
+
+<% @operations.each do |operation| %>
+  <h3><%= operation.name %></h3>
+  <p>Amount: <%= operation.amount %></p>
+<% end %>
+
+<hr>
+
+<%= link_to "Add a new transaction", new_group_operation_path(@group) %>

@@ -1,0 +1,16 @@
+<h1>New Transaction</h1>
+
+<%= form_with(model: @operation, url: group_operations_path) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :amount %>
+  <%= form.text_field :amount %>
+
+  <%= form.label :group_id %>
+  <%= form.collection_select :group_id, @groups, :id, :name, prompt: true %>
+
+  <%= form.submit "Save" %>
+<% end %>
+
+<%#= link_to "Back", group_path(@operation.group_id) %>
